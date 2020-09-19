@@ -353,8 +353,8 @@ class Injector
 		addClassToInfo(forClass, info, []);
 		// sort rtti to ensure post constructors are last and in order
 		ArraySort.sort(info.fields, function(p1,p2) {
-			var post1 = Std.instance(p1,PostInjectionPoint);
-			var post2 = Std.instance(p2,PostInjectionPoint);
+			var post1 = Std.downcast(p1,PostInjectionPoint);
+			var post2 = Std.downcast(p2,PostInjectionPoint);
 			return switch ([post1, post2])
 			{
 				case [null,null]: 0;
